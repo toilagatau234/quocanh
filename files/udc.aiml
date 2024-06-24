@@ -1,7 +1,467 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<aiml>
-  <category>
-    <pattern>*</pattern>
-    <template>I have no answer for that.</template>
-  </category>
+<aiml version="2.0">
+    <!-- Greetings -->
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <condition name="username">
+                <li value="unknown">Xin chào! Bạn tên gì vậy?</li>
+                <li>Chào <get name="username"/>! Chúng tôi có thể giúp gì cho bạn?</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            <condition name="username">
+                <li value="unknown">Chào bạn! Bạn tên gì vậy?</li>
+                <li>Chào <get name="username"/>! Bạn cần hỗ trợ gì từ chúng tôi?</li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>XIN CHÀO</pattern>
+        <template>
+            <condition name="username">
+                <li value="unknown">Chào bạn! Bạn tên gì nhỉ?</li>
+                <li>Chào <get name="username"/>! Bạn cần hỗ trợ gì từ chúng tôi?</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* MORNING</pattern>
+        <template>Chào buổi sáng! Tôi có thể giúp gì cho bạn hôm nay?</template>
+    </category>
+
+    <category>
+        <pattern>* AFTERNOON</pattern>
+        <template>Chào buổi chiều! Bạn cần hỗ trợ gì từ chúng tôi?</template>
+    </category>
+
+    <category>
+        <pattern>* EVENING</pattern>
+        <template>Chào buổi tối! Tôi có thể giúp gì cho bạn?</template>
+    </category>
+
+    <category>
+        <pattern>CHÀO</pattern>
+        <template>
+            <random>
+                <li>Xin chào! Chúng tôi có thể giúp gì cho bạn?</li>
+                <li>Chào bạn! Cần mình hỗ trợ gì không?</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>CHÀO BUỔI SÁNG</pattern>
+        <template>Chào buổi sáng! Tôi có thể giúp gì cho bạn hôm nay?</template>
+    </category>
+
+    <category>
+        <pattern>CHÀO BUỔI CHIỀU</pattern>
+        <template>Chào buổi chiều! Bạn cần hỗ trợ gì từ chúng tôi?</template>
+    </category>
+
+    <category>
+        <pattern>CHÀO BUỔI TỐI</pattern>
+        <template>Chào buổi tối! Tôi có thể giúp gì cho bạn?</template>
+    </category>
+
+    <category>
+        <pattern>TÊN TÔI LÀ *</pattern>
+        <template>
+            <think><set name="username"><star/></set></think>
+            Rất vui được gặp bạn, <get name="username"/>! Mình có thể giúp gì cho bạn không?
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <think><set name="username"><star/></set></think>
+            Rất vui được gặp bạn, <get name="username"/>! Mình có thể giúp gì cho bạn không?
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TÔI TÊN LÀ *</pattern>
+        <template>
+            <think><set name="username"><star/></set></think>
+            Rất vui được gặp bạn, <get name="username"/>! Mình có thể giúp gì cho bạn không?
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GỌI TÔI *</pattern>
+        <template>
+            <think><set name="username"><star/></set></think>
+            Rất vui được gặp bạn, <get name="username"/>! Mình có thể giúp gì cho bạn không?
+        </template>
+    </category>
+
+    <!-- Booking -->
+    <category>
+        <pattern>BOOK A ROOM</pattern>
+        <template>
+            <think><set name="topic">booking</set></think>
+            Được thôi! Bạn muốn đặt phòng cho mấy người vậy?
+        </template>
+    </category>
+
+    <category>
+        <pattern>I WANT TO BOOK A ROOM</pattern>
+        <template>
+            <think><set name="topic">booking</set></think>
+            Tuyệt! Bạn muốn đặt phòng cho mấy người vậy?
+        </template>
+    </category>
+
+    <category>
+        <pattern>RESERVE A ROOM</pattern>
+        <template>
+            <think><set name="topic">booking</set></think>
+            Được, bạn muốn đặt phòng cho mấy người?
+        </template>
+    </category>
+
+    <category>
+        <pattern>ĐẶT PHÒNG</pattern>
+        <template>
+            <think><set name="topic">booking</set></think>
+            Vâng, bạn muốn đặt phòng cho mấy người vậy?
+        </template>
+    </category>
+
+    <category>
+        <pattern>PHÒNG TRỐNG</pattern>
+        <template>Vui lòng cho chúng tôi biết ngày bạn dự định nhận phòng và trả phòng để kiểm tra tình trạng phòng trống.</template>
+    </category>
+
+    <category>
+        <pattern>AVAILABLE ROOMS</pattern>
+        <template>Xin cho biết ngày nhận phòng và trả phòng để chúng tôi kiểm tra tình trạng phòng trống.</template>
+    </category>
+
+    <category>
+        <pattern>TÔI MUỐN ĐẶT PHÒNG</pattern>
+        <template>
+            <think><set name="topic">booking</set></think>
+            Được, bạn muốn đặt phòng cho mấy người vậy?
+        </template>
+    </category>
+
+    <category>
+        <pattern>CÒN PHÒNG KHÔNG</pattern>
+        <template>Xin vui lòng cho biết ngày bạn muốn đặt để chúng tôi kiểm tra tình trạng phòng trống.</template>
+    </category>
+
+    <category>
+        <pattern>BOOKING INQUIRY</pattern>
+        <template>Để kiểm tra tình trạng đặt phòng, vui lòng cung cấp thông tin ngày nhận phòng và trả phòng.</template>
+    </category>
+
+    <topic name="booking">
+        <category>
+            <pattern>* NGƯỜI</pattern>
+            <template>
+                <think><set name="guests"><star/></set></think>
+                OK, <get name="guests"/> người. Bạn muốn đặt phòng từ ngày nào?
+            </template>
+        </category>
+        
+        <category>
+            <pattern>TỪ NGÀY *</pattern>
+            <template>
+                <think><set name="checkin"><star/></set></think>
+                Và bạn sẽ ở đến ngày nào?
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ĐẾN NGÀY *</pattern>
+            <template>
+                <think><set name="checkout"><star/></set></think>
+                Cảm ơn bạn. Vậy là bạn muốn đặt phòng cho <get name="guests"/> người, từ ngày <get name="checkin"/> đến ngày <get name="checkout"/>. Mình sẽ kiểm tra phòng trống và báo giá cho bạn ngay nhé!
+            </template>
+        </category>
+    </topic>
+
+    <!-- Pricing Information -->
+    <category>
+        <pattern>ROOM PRICE</pattern>
+        <template>Giá phòng thay đổi tùy thuộc vào loại phòng và thời gian bạn muốn đặt. Bạn có thể cung cấp thêm thông tin về loại phòng và ngày nhận phòng không?</template>
+    </category>
+
+    <category>
+        <pattern>ROOM RATES</pattern>
+        <template>Giá phòng phụ thuộc vào loại phòng và thời gian lưu trú. Bạn có thể cho chúng tôi biết thêm chi tiết?</template>
+    </category>
+
+    <category>
+        <pattern>GIÁ PHÒNG</pattern>
+        <template>Giá phòng thay đổi tùy thuộc vào loại phòng và thời gian bạn muốn đặt. Bạn có thể cung cấp thêm thông tin về loại phòng và ngày nhận phòng không?</template>
+    </category>
+
+    <category>
+        <pattern>PHÍ PHÒNG</pattern>
+        <template>Giá phòng phụ thuộc vào loại phòng và thời gian lưu trú. Bạn có thể cho chúng tôi biết thêm chi tiết?</template>
+    </category>
+
+    <category>
+        <pattern>HOW MUCH DOES A ROOM COST</pattern>
+        <template>Giá phòng thay đổi tùy thuộc vào loại phòng và thời gian đặt. Bạn có thể cho biết loại phòng và ngày bạn muốn đặt không?</template>
+    </category>
+
+    <category>
+        <pattern>BẢNG GIÁ PHÒNG</pattern>
+        <template>Để cung cấp bảng giá chính xác, vui lòng cho biết loại phòng và thời gian bạn muốn đặt.</template>
+    </category>
+
+    <category>
+        <pattern>PRICING</pattern>
+        <template>Giá phòng thay đổi theo loại phòng và mùa. Bạn có thể cung cấp thêm thông tin về kế hoạch lưu trú của bạn không?</template>
+    </category>
+
+    <!-- Check-in/Check-out Information -->
+    <category>
+        <pattern>CHECK-IN TIME</pattern>
+        <template>Thời gian nhận phòng là sau 2:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>WHEN CAN I CHECK IN</pattern>
+        <template>Thời gian nhận phòng là sau 2:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>WHEN IS CHECK-IN</pattern>
+        <template>Thời gian nhận phòng bắt đầu từ 2:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>THỜI GIAN NHẬN PHÒNG</pattern>
+        <template>Thời gian nhận phòng là sau 2:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>CHECK-OUT TIME</pattern>
+        <template>Thời gian trả phòng là trước 12:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>WHEN IS CHECK-OUT</pattern>
+        <template>Thời gian trả phòng là trước 12:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>WHEN DO I CHECK OUT</pattern>
+        <template>Thời gian trả phòng là trước 12:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>THỜI GIAN TRẢ PHÒNG</pattern>
+        <template>Thời gian trả phòng là trước 12:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>GIỜ NHẬN PHÒNG</pattern>
+        <template>Bạn có thể nhận phòng sau 2:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>GIỜ TRẢ PHÒNG</pattern>
+        <template>Vui lòng trả phòng trước 12:00 PM.</template>
+    </category>
+
+    <category>
+        <pattern>EARLY CHECK-IN</pattern>
+        <template>Nhận phòng sớm phụ thuộc vào tình trạng phòng trống. Vui lòng liên hệ trực tiếp với chúng tôi để kiểm tra khả năng này.</template>
+    </category>
+
+    <category>
+        <pattern>LATE CHECK-OUT</pattern>
+        <template>Trả phòng muộn có thể được sắp xếp tùy thuộc vào tình trạng phòng. Vui lòng liên hệ lễ tân để biết thêm chi tiết.</template>
+    </category>
+    
+    <category>
+        <pattern>NHẬN PHÒNG SỚM</pattern>
+        <template>Nhận phòng sớm phụ thuộc vào tình trạng phòng trống. Vui lòng liên hệ trực tiếp với chúng tôi để kiểm tra khả năng này.</template>
+    </category>
+
+    <category>
+        <pattern>TRẢ PHÒNG TRỄ</pattern>
+        <template>Trả phòng muộn có thể được sắp xếp tùy thuộc vào tình trạng phòng. Vui lòng liên hệ lễ tân để biết thêm chi tiết.</template>
+    </category>
+
+    <!-- Facilities Information -->
+    <category>
+        <pattern>FACILITIES</pattern>
+        <template>
+            <random>
+                <li>Khách sạn chúng tôi có đầy đủ các tiện nghi như hồ bơi, phòng gym, spa, và nhà hàng.</li>
+                <li>Chúng tôi tự hào có hồ bơi tuyệt đẹp, phòng gym hiện đại, spa thư giãn và nhà hàng ngon miệng.</li>
+                <li>Bạn sẽ được tận hưởng hồ bơi, phòng gym, spa và nhà hàng đẳng cấp của chúng tôi.</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT FACILITIES DO YOU HAVE</pattern>
+        <template>Chúng tôi cung cấp các tiện nghi bao gồm hồ bơi, phòng gym, spa, và nhà hàng.</template>
+    </category>
+
+    <category>
+        <pattern>WHAT AMENITIES ARE AVAILABLE</pattern>
+        <template>Khách sạn của chúng tôi có hồ bơi, phòng gym, spa, và nhà hàng.</template>
+    </category>
+
+    <category>
+        <pattern>TIỆN NGHI</pattern>
+        <template>Khách sạn chúng tôi có đầy đủ các tiện nghi như hồ bơi, phòng gym, spa, và nhà hàng.</template>
+    </category>
+
+    <category>
+        <pattern>DO YOU HAVE A POOL</pattern>
+        <template>Vâng, khách sạn chúng tôi có hồ bơi.</template>
+    </category>
+
+    <category>
+        <pattern>IS THERE A GYM</pattern>
+        <template>Vâng, khách sạn chúng tôi có phòng gym.</template>
+    </category>
+
+    <category>
+        <pattern>CÓ HỒ BƠI KHÔNG</pattern>
+        <template>Vâng, khách sạn chúng tôi có hồ bơi.</template>
+    </category>
+
+    <category>
+        <pattern>CÓ PHÒNG TẬP THỂ DỤC KHÔNG</pattern>
+        <template>Có, chúng tôi có phòng tập thể dục đầy đủ thiết bị.</template>
+    </category>
+
+    <category>
+        <pattern>RESTAURANT</pattern>
+        <template>Khách sạn chúng tôi có nhà hàng phục vụ các món ăn địa phương và quốc tế.</template>
+    </category>
+
+<category>
+        <pattern>WIFI</pattern>
+        <template>Chúng tôi cung cấp WiFi miễn phí trong toàn bộ khách sạn.</template>
+    </category>
+
+    <category>
+        <pattern>IS THERE WIFI</pattern>
+        <template>Vâng, chúng tôi có WiFi miễn phí cho tất cả khách hàng.</template>
+    </category>
+
+    <category>
+        <pattern>CÓ WIFI KHÔNG</pattern>
+        <template>Có, chúng tôi cung cấp WiFi miễn phí trong toàn bộ khách sạn.</template>
+    </category>
+
+    <!-- Transportation and Location -->
+    <category>
+        <pattern>TRANSPORTATION</pattern>
+        <template>Chúng tôi cung cấp dịch vụ đưa đón sân bay. Bạn cũng có thể thuê xe hoặc sử dụng taxi để di chuyển trong thành phố.</template>
+    </category>
+
+    <category>
+        <pattern>AIRPORT SHUTTLE</pattern>
+        <template>Có, chúng tôi có dịch vụ đưa đón sân bay. Vui lòng cung cấp thông tin chuyến bay để chúng tôi sắp xếp.</template>
+    </category>
+
+    <category>
+        <pattern>ĐƯA ĐÓN SÂN BAY</pattern>
+        <template>Chúng tôi có dịch vụ đưa đón sân bay. Xin vui lòng cung cấp chi tiết chuyến bay của bạn.</template>
+    </category>
+
+    <category>
+        <pattern>LOCATION</pattern>
+        <template>Khách sạn chúng tôi nằm ở trung tâm thành phố, gần các điểm tham quan chính và trung tâm mua sắm.</template>
+    </category>
+
+    <category>
+        <pattern>VỊ TRÍ KHÁCH SẠN</pattern>
+        <template>Khách sạn của chúng tôi nằm ở vị trí trung tâm, thuận tiện để khám phá thành phố.</template>
+    </category>
+
+    <!-- Room Types -->
+    <category>
+        <pattern>ROOM TYPES</pattern>
+        <template>Chúng tôi có các loại phòng: Phòng Đơn, Phòng Đôi, Phòng Gia đình và Phòng Suite. Bạn quan tâm đến loại phòng nào?</template>
+    </category>
+
+    <category>
+        <pattern>LOẠI PHÒNG</pattern>
+        <template>Chúng tôi cung cấp Phòng Đơn, Phòng Đôi, Phòng Gia đình và Phòng Suite. Bạn muốn biết thêm về loại phòng nào?</template>
+    </category>
+
+    <!-- Dining Options -->
+    <category>
+        <pattern>DINING OPTIONS</pattern>
+        <template>Khách sạn có nhà hàng phục vụ ẩm thực địa phương và quốc tế, quầy bar, và dịch vụ phòng 24/7.</template>
+    </category>
+
+    <category>
+        <pattern>NHÀ HÀNG</pattern>
+        <template>Nhà hàng của chúng tôi phục vụ các món ăn đa dạng từ địa phương đến quốc tế.</template>
+    </category>
+
+    <!-- Special Requests -->
+    <category>
+        <pattern>SPECIAL REQUESTS</pattern>
+        <template>Chúng tôi luôn cố gắng đáp ứng các yêu cầu đặc biệt của khách hàng. Vui lòng cho biết bạn cần gì?</template>
+    </category>
+
+    <category>
+        <pattern>YÊU CẦU ĐẶC BIỆT</pattern>
+        <template>Chúng tôi sẵn sàng đáp ứng các yêu cầu đặc biệt. Bạn có yêu cầu cụ thể nào không?</template>
+    </category>
+
+    <!-- Cancellation Policy -->
+    <category>
+        <pattern>CANCELLATION POLICY</pattern>
+        <template>Chính sách hủy phòng của chúng tôi cho phép hủy miễn phí trước 24 giờ so với ngày nhận phòng. Sau thời gian này, có thể áp dụng phí hủy phòng.</template>
+    </category>
+
+    <category>
+        <pattern>CHÍNH SÁCH HỦY PHÒNG</pattern>
+        <template>Bạn có thể hủy đặt phòng miễn phí trước 24 giờ so với ngày nhận phòng. Nếu hủy muộn hơn, có thể phải trả phí.</template>
+    </category>
+
+    <!-- Payment Methods -->
+    <category>
+        <pattern>PAYMENT METHODS</pattern>
+        <template>Chúng tôi chấp nhận thanh toán bằng tiền mặt, thẻ tín dụng (Visa, MasterCard, American Express) và chuyển khoản ngân hàng.</template>
+    </category>
+
+    <category>
+        <pattern>PHƯƠNG THỨC THANH TOÁN</pattern>
+        <template>Bạn có thể thanh toán bằng tiền mặt, thẻ tín dụng hoặc chuyển khoản ngân hàng.</template>
+    </category>
+
+    <!-- Default Category -->
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <random>
+                <li>Xin lỗi, tôi không hiểu câu hỏi của bạn. Bạn có thể diễn đạt lại được không?</li>
+                <li>Tôi chưa được lập trình để trả lời câu hỏi này. Bạn có thể hỏi điều gì khác không?</li>
+                <li>Tôi không chắc mình hiểu đúng ý bạn. Bạn có thể giải thích rõ hơn được không?</li>
+            </random>
+        </template>
+    </category>
+
+<category>
+    <pattern></pattern>
+    <template></template>
+</category>
+<category>
+    <pattern>Click node to edit pattern</pattern>
+    <template>Click node to edit template</template>
+</category>
 </aiml>
